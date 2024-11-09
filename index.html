@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella & Bold</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f2f2f2;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        header, footer, main, nav {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        header {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        nav {
+            background-color: #ffab91;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        input#searchBar {
+            padding: 5px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        button {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .product {
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+        }
+        footer {
+            background-color: #ffab91;
+            color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML -->
+    <header>
+        <h1>¡Bienvenido a Bella & Bold!</h1>
+        <p>Encuentra moda para todos en un solo lugar. Explora nuestra colección para hombres, mujeres y niños con productos exclusivos y precios irresistibles.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#hombres">Hombres</a></li>
+            <li><a href="#mujeres">Mujeres</a></li>
+            <li><a href="#ninos">Niños</a></li>
+            <li><a href="#ubicacion">Ubicación y Contacto</a></li>
+        </ul>
+        <input type="text" id="searchBar" placeholder="Buscar productos...">
+        <button onclick="searchProduct()">Buscar</button>
+    </nav>
+
+    <main id="productos">
+        <!-- Productos destacados -->
+        <section>
+            <h2>Productos Destacados</h2>
+            <div class="product">
+                <h3>Camisa Casual para Hombre</h3>
+                <p>$29.99</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Vestido de Verano para Mujer</h3>
+                <p>$39.99</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Pantalones para Niños</h3>
+                <p>$19.99</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+        
+        <!-- Sección Hombres -->
+        <section id="hombres">
+            <h2>Hombres</h2>
+            <p>Explora nuestras opciones de moda para hombres, desde estilos casuales hasta elegantes trajes.</p>
+            <div class="product">
+                <h3>Camisa Casual</h3>
+                <p>$29.99</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Pantalón de Vestir</h3>
+                <p>$49.99</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+
+        <!-- Sección Mujeres -->
+        <section id="mujeres">
+            <h2>Mujeres</h2>
+            <p>Descubre nuestra moda exclusiva para mujeres, con opciones para cualquier ocasión.</p>
+            <div class="product">
+                <h3>Vestido de Verano</h3>
+                <p>$39.99</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Blusa Elegante</h3>
+                <p>$24.99</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+
+        <!-- Sección Niños -->
+        <section id="ninos">
+            <h2>Niños</h2>
+            <p>Moda divertida y cómoda para los más pequeños. ¡Ideal para jugar y explorar!</p>
+            <div class="product">
+                <h3>Camiseta Divertida</h3>
+                <p>$14.99</p>
+                <button>Comprar</button>
+            </div>
+            <div class="product">
+                <h3>Pantalones para Niños</h3>
+                <p>$19.99</p>
+                <button>Comprar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer id="ubicacion">
+        <h3>Ubicación y Contacto</h3>
+        <p>Encuéntranos en la mejor zona de la ciudad, cerca de tiendas y restaurantes. Contáctanos por WhatsApp o correo electrónico para cualquier consulta.</p>
+        <p>WhatsApp: +123456789 | Correo: contacto@bellaybold.com</p>
+    </footer>
+
+    <script>
+        // JavaScript para búsqueda de productos
+        function searchProduct() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const products = document.querySelectorAll(".product");
+
+            products.forEach(product => {
+                const productName = product.querySelector("h3").textContent.toLowerCase();
+                if (productName.includes(query)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
